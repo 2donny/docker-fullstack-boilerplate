@@ -1,9 +1,0 @@
-{
-  "type": "postgres",
-  "host": "docker-backend-postgres.cxxbypwc85ck.ap-northeast-2.rds.amazonaws.com",
-  "port": 5432,
-  "username": "ykring_admin",
-  "password": "xircle-ykring-password",
-  "database": "myapp",
-  "entities": ["*.entity.js"]
-}
