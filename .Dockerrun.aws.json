@@ -8,6 +8,12 @@
       "memory": 128
     },
     {
+      "name": "nginx",
+      "image": "2donny/docker-nginx",
+      "essential": true,
+      "memory": 128
+    },
+    {
       "name": "postgres",
       "image": "2donny/docker-postgres",
       "essential": false,

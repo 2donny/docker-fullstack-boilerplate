@@ -8,12 +8,17 @@ services:
 # image build
 script:
   - docker build -t 2donny/docker-backend ./backend
+  - docker build -t 2donny/docker-nginx ./nginx
+  - docker build -t 2donny/docker-postgres
 
 # Login docker hub
 after_script:
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
 
   - docker push 2donny/docker-backend
+  - docker push 2donny/docker-nginx
+  - docker push 2donny/docker-postgres
+
 
 deploy:
   provider: elasticbeanstalk
