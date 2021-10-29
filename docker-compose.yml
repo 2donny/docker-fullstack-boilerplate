@@ -1,24 +1,6 @@
 version: "3"
+
 services:
-  frontend:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./frontend
-    container_name: "app_frontend"
-    volumes:
-      - /app/node_modules
-      - ./frontend:/app
-    stdin_open: true
-
-  nginx:
-    restart: "always"
-    container_name: "app_nginx"
-    build:
-      dockerfile: Dockerfile
-      context: ./nginx
-    ports:
-      - "3000:80"
-
   backend:
     build:
       dockerfile: Dockerfile
@@ -27,3 +9,21 @@ services:
     volumes:
       - /app/node_modules
       - ./backend:/app
+  # frontend:
+  #   build:
+  #     dockerfile: Dockerfile.dev
+  #     context: ./frontend
+  #   container_name: "app_frontend"
+  #   volumes:
+  #     - /app/node_modules
+  #     - ./frontend:/app
+  #   stdin_open: true
+
+  # nginx:
+  #   restart: "always"
+  #   container_name: "app_nginx"
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: ./nginx
+  #   ports:
+  #     - "3000:80"

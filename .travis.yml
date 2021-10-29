@@ -1,0 +1,18 @@
+language: generic
+
+sudo: required
+
+services:
+  - docker
+
+# image build
+script:
+  - docker build -t 2donny/docker-backend ./backend
+
+# Login docker hub
+after_script:
+  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
+
+  - docker push 2donny/docker-backend
+
+
