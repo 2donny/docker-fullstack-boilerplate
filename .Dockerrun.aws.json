@@ -1,0 +1,17 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "backend",
+      "image": "2donny/docker-backend",
+      "essential": false,
+      "memory": 128
+    },
+    {
+      "name": "postgres",
+      "image": "2donny/docker-postgres",
+      "essential": false,
+      "memory": 128
+    }
+  ]
+}

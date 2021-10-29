@@ -15,4 +15,15 @@ after_script:
 
   - docker push 2donny/docker-backend
 
+deploy:
+  provider: elasticbeanstalk
+  region: 'ap-northeast-2'
+  app: "docker-backend-app"
+  env: "Dockerbackendapp-env"
+  bucket_name: elasticbeanstalk-ap-northeast-2-471011865482
+  bucket_path: "docker-backend-app"
+  on:
+    branch: master
 
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
