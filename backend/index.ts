@@ -1,6 +1,6 @@
-const express = require("express");
-const redis = require("redis");
-const db = require("./db");
+import express from "express";
+import redis from "redis";
+import { pool } from "./db";
 
 // Create Redis client
 // const redisClient = redis.createClient({
@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
   res.send("hello world!");
 });
 app.get("/api/values", (req, res) => {
-  db.pool.query("SELECT * FROM lists;", (err, result, fields) => {
+  pool.query("SELECT * FROM lists;", (err, result, fields) => {
     if (err) return res.status(500).send(err);
     return res.json(result);
   });
