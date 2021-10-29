@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3"
 
 services:
   nginx:
@@ -22,7 +22,7 @@ services:
       - ./backend:/app
 
   db:
-    image: postgres:11
+    image: postgres
     ports:
       - "5432:5432"
     env_file: .env
