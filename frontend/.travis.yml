@@ -1,0 +1,25 @@
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - echo "start creating an image with dockerfile"
+  - docker build -t 2donny/react-docker -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true 2donny/react-docker npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "react-docker-app"
+  env: "Reactdockerapp-env"
+  bucket_name: "elasticbeanstalk-ap-northeast-2-471011865482"
+  bucket_path: "react-docker-app"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
