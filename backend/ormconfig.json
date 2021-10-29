@@ -1,0 +1,9 @@
+{
+  "type": "postgres",
+  "host": "host",
+  "port": 5432,
+  "username": "root",
+  "password": "password",
+  "database": "myapp",
+  "entities": ["*.entity.js"]
+}
