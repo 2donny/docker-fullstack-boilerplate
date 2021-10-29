@@ -4,12 +4,11 @@ sudo: required
 
 services:
   - docker
- 
+
 # image build
 script:
   - docker build -t 2donny/docker-backend ./backend
   - docker build -t 2donny/docker-nginx ./nginx
-  - docker build -t 2donny/docker-postgres
 
 # Login docker hub
 after_script:
@@ -17,12 +16,10 @@ after_script:
 
   - docker push 2donny/docker-backend
   - docker push 2donny/docker-nginx
-  - docker push 2donny/docker-postgres
-
 
 deploy:
   provider: elasticbeanstalk
-  region: 'ap-northeast-2'
+  region: "ap-northeast-2"
   app: "docker-backend-app"
   env: "Dockerbackendapp-env"
   bucket_name: elasticbeanstalk-ap-northeast-2-471011865482
