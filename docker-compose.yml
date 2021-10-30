@@ -16,7 +16,12 @@ services:
   backend:
     image: 2donny/docker-backend
     container_name: "app_backend"
-    env_file: .postgres.env
+    environment:
+      POSTGRES_HOST: $POSTGRES_HOST
+      POSTGRES_DB: $POSTGRES_DB
+      POSTGRES_USER: $POSTGRES_USER
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      POSTGRES_PORT: $POSTGRES_PORT
     volumes:
       - /app/node_modules
       - ./backend:/app
@@ -25,7 +30,12 @@ services:
   db:
     image: postgres
     container_name: "app_database"
+    environment:
+      POSTGRES_HOST: $POSTGRES_HOST
+      POSTGRES_DB: $POSTGRES_DB
+      POSTGRES_USER: $POSTGRES_USER
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      POSTGRES_PORT: $POSTGRES_PORT
     ports:
       - "5432:5432"
-    env_file: .postgres.env
     mem_limit: 256m
