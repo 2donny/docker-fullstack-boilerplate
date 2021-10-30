@@ -20,10 +20,10 @@ after_script:
 deploy:
   provider: elasticbeanstalk
   region: "ap-northeast-2"
-  app: "docker-backend-app"
-  env: "Dockerbackendapp-env"
+  app: "docker-backend-latest"
+  env: "Dockerbackendlatest-env"
   bucket_name: elasticbeanstalk-ap-northeast-2-471011865482
-  bucket_path: "docker-backend-app"
+  bucket_path: "docker-backend-latest"
   on:
     branch: master
 
